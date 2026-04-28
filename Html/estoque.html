@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-a">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Monikriativa - Pagina Inicial</title>
+
+        <!--CSS-->
+        <link rel="stylesheet" href="/DEV SECULAR/css/monikriativa.css">
+
+        <!--FONTAWESOME-->
+        <script src="https://kit.fontawesome.com/e9987e6d2b.js" crossorigin="anonymous"></script>
+
+        <!--BOOTSTRAP-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <link rel="shortcut icon" href="/img/MONIKRIATIVA/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/img/MONIKRIATIVA/favicon (1).ico" type="image/x-icon">
+    </head>
+
+    <body id="pagina-estoque">  
+        <!-- Início do Menu Lateral -->
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+            style="width: 280px; height: 100%; position: fixed;" id="lateral-menu">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <div class="row">
+                    <a href="/SELLER/00 - HTML/00-index_padrao.html" style="text-decoration: none; color: white">
+                        <div id="title-brand">
+                            <span class="">Monikriativa</span>
+                        </div>
+                        <div id="subtitulo-brand">
+                            <span class="">Papelaria Artesanal Criativa</span>
+                        </div>
+                    </a>
+                </div>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto" id="menu-lateral">
+                <li class="">
+                    <a href="index.html" class="nav-link text-white">
+                        <i class="fa-solid fa-house">&nbsp;</i>
+                        <span>Início</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vendas.html" class="nav-link text-white">
+                        <i class="fa-solid fa-cart-shopping">&nbsp;</i>
+                        <span>Minhas Vendas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="produtos.html" class="nav-link text-white">
+                        <i class="fa-solid fa-table">&nbsp;</i>
+                        <span>Produtos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="insumos.html" class="nav-link text-white">
+                        <i class="fa-solid fa-table">&nbsp;</i>
+                        <span>Insumos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html" class="nav-link text-white">
+                        <i class="fa-solid fa-users">&nbsp;</i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fornecedores.html" class="nav-link text-white">
+                        <i class="fa-solid fa-truck">&nbsp;</i>
+                        <span>Fornecedores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="estoque.html" class="nav-link text-white active">
+                        <i class="fa-solid fa-boxes-packing">&nbsp;</i>
+                        <span>Gestão de Estoque</span>
+                    </a>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li>
+                    <a href="financeiro.html" class="nav-link text-white">
+                        <i class="fa-solid fa-sack-dollar">&nbsp;</i>
+                        <span>Meu Financeiro</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="permissoes.html" class="nav-link text-white">
+                        <i class="fa-solid fa-lock-open">&nbsp;</i>
+                        <span>Acessos e Permissões</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="fa-solid fa-gear">&nbsp;</i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li>
+                    <a href="codigodev.html" class="nav-link text-white">
+                        <button class="btn btn-primary w-100">
+                            <i class="fa-solid fa-code">&nbsp;</i>
+                            <span class="code-dev">área Dev</span>
+                        </button>
+                    </a>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li class="d-flex justify-content-center">
+                    <button class="btn btn-danger w-100" onclick="muda_badge() , balancarSino()">Teste de Badge</button>
+                </li>
+            </ul>
+        </div>
+        <!--Final do Menu Lateral-->
+
+        <!--BADGE-->
+        <!--Botão Alerta de Notificações-->
+        <div>
+            <button class="btn btn-warning text-white" id="button-alert-main">
+                <i class="fa-solid fa-bell" id="sinoNotificacao"></i>
+                <span class="badge rounded-pill bg-danger" id="badge-notificacao"></span>
+            </button>
+        </div>
+        <!--FINAL BADGE-->
+
+        <!--Botão Loja Shopee
+        <div id="btnShopee">
+            <a href="https://seller.shopee.com.br/" target="_blank">
+                <button class="btn btn-orange text-white" id="button-shopee">
+                    <span class="label-format">Shopee</span>
+                    <i class="fa-solid fa-store"></i>
+                </button>
+            </a>
+        </div>
+
+        <div id="btnElo7">
+            <a href="https://www.elo7.com.br/monikriativa" target="_blank">
+                <button class="btn btn-orange text-white" id="button-Elo7">
+                    <span class="label-format">Elo7</span>
+                    <i class="fa-solid fa-store"></i>
+                </button>
+            </a>
+        </div>-->
+
+        <!--Botão Whatsapp
+        <div>
+            <a href="https://wa.me/5537988550748" target="_blank">
+                <button class="btn btn-success" id="button-whatsapp">
+                    <i class="fa fa-whatsapp fa-bounce"></i>
+                </button>
+            </a>
+        </div>-->
+
+        <!--Botão Data e Hora-->
+        <div>
+            <button class="btn btn-dark uppercase" id="buttonTime" style="font-size: 0.9rem; letter-spacing: 1px;"></button>
+        </div>
+
+        <!-- Início do Conteúdo Principal -->
+        <div class="b-example-divider">
+            <div class="container" style="margin-left: 280px; min-width: 85%; max-width: 86%;">
+                <div class="row" id="cards-inicial-index">
+                    <div class="col-11">
+                        <div class="col mt-3">
+                            <div class="card card-principal">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="m-1 title-main">
+                                                controle de estoque
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+        <!--JS-->
+        <script src="/DEV SECULAR/Js/index.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+
+    </body>
+</html>

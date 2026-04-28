@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-a">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monikriativa - Meus Produtos</title>
+
+    <!--CSS-->
+        <link rel="stylesheet" href="/DEV SECULAR/css/monikriativa.css">
+
+    <!--FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/e9987e6d2b.js" crossorigin="anonymous"></script>
+
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="shortcut icon" href="/MONIKRIATIVA/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/MONIKRIATIVA/img//favicon (1).ico" type="image/x-icon">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+</head>
+
+<body id="pagina-produtos">
+    <!-- Início do Menu Lateral -->
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+        style="width: 280px; height: 100%; position: fixed;" id="lateral-menu">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <div class="row">
+                <a href="/SELLER/00 - HTML/00-index_padrao.html" style="text-decoration: none; color: white">
+                    <div id="title-brand">
+                        <span class="">Monikriativa</span>
+                    </div>
+                    <div id="subtitulo-brand">
+                        <span class="">Papelaria Artesanal Criativa</span>
+                    </div>
+                </a>
+            </div>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto" id="menu-lateral">
+            <li class="">
+                <a href="index.html" class="nav-link text-white">
+                    <i class="fa-solid fa-house">&nbsp;</i>
+                    <span>Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="vendas.html" class="nav-link text-white">
+                    <i class="fa-solid fa-cart-shopping">&nbsp;</i>
+                    <span>Minhas Vendas</span>
+                </a>
+            </li>
+            <li>
+                <a href="produtos.html" class="nav-link text-white active">
+                    <i class="fa-solid fa-table">&nbsp;</i>
+                    <span>Produtos</span>
+                </a>
+            </li>
+            <li>
+                <a href="insumos.html" class="nav-link text-white">
+                    <i class="fa-solid fa-table">&nbsp;</i>
+                    <span>Insumos</span>
+                </a>
+            </li>
+            <li>
+                <a href="clientes.html" class="nav-link text-white">
+                    <i class="fa-solid fa-users">&nbsp;</i>
+                    <span>Clientes</span>
+                </a>
+            </li>
+            <li>
+                <a href="fornecedores.html" class="nav-link text-white">
+                    <i class="fa-solid fa-truck">&nbsp;</i>
+                    <span>Fornecedores</span>
+                </a>
+            </li>
+            <li>
+                <a href="estoque.html" class="nav-link text-white">
+                    <i class="fa-solid fa-boxes-packing">&nbsp;</i>
+                    <span>Gestão de Estoque</span>
+                </a>
+            </li>
+            <li>
+                <hr>
+            </li>
+            <li>
+                <a href="financeiro.html" class="nav-link text-white">
+                    <i class="fa-solid fa-sack-dollar">&nbsp;</i>
+                    <span>Meu Financeiro</span>
+                </a>
+            </li>
+            <li>
+                <a href="permissoes.html" class="nav-link text-white">
+                    <i class="fa-solid fa-lock-open">&nbsp;</i>
+                    <span>Acessos e Permissões</span>
+                </a>
+            </li>
+            <li>
+                <a href="configuracoes.html" class="nav-link text-white">
+                    <i class="fa-solid fa-gear">&nbsp;</i>
+                    <span>Configurações</span>
+                </a>
+            </li>
+            <li>
+                <hr>
+            </li>
+            <li>
+                <a href="codigodev.html" class="nav-link text-white">
+                    <button class="btn btn-primary w-100">
+                        <i class="fa-solid fa-code">&nbsp;</i>
+                        <span class="code-dev">área Dev</span>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <hr>
+            </li>
+            <li class="d-flex justify-content-center">
+                <button class="btn btn-danger w-100" onclick="muda_badge() , balancarSino()">Teste de Badge</button>
+            </li>
+        </ul>
+    </div>
+
+    <!--Botão Alerta de Notificações-->
+    <div>
+        <button class="btn btn-warning text-white" id="button-alert-main">
+            <i class="fa-solid fa-bell" id="sinoNotificacao"></i>
+            <span class="badge rounded-pill bg-danger" id="badge-notificacao"></span>
+        </button>
+    </div>
+
+    <!--Botão Whatsapp
+        <div>
+            <a href="https://wa.me/5537988550748" target="_blank">
+                <button class="btn btn-success" id="button-whatsapp">
+                    <i class="fa fa-whatsapp fa-bounce"></i>
+                </button>
+            </a>
+        </div>-->
+
+    <!--Botão Data e Hora-->
+    <div>
+        <button class="btn btn-dark uppercase" id="buttonTime" style="font-size: 0.9rem; letter-spacing: 1px;"></button>
+    </div>
+
+    <!-- Início do Conteúdo Principal -->
+    <div class="b-example-divider">
+        <div class="container" style="margin-left: 280px; min-width: 50%; max-width: 78.8%;">
+            <div class="row" id="cards-inicial-produtos">
+                <div class="col">
+
+                    <!--CADASTRO CATEGORIAS / CAPAS-->
+                    <div class="card card-principal my-3">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-6" style="border-right: 1px solid lightgray;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="title-main">Categorias de Produtos</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-6">
+                                            <div class="input-group">
+                                                <input type="text" name="" id="inputNovaCategoriaProduto"
+                                                    class="form-control text-center" disabled>
+                                                <button class="btn btn-success d-none input-group-text"
+                                                    id="btnSalvarNovaCategoriaProduto"
+                                                    onclick="salvarNovaCategoriaProduto()">
+                                                    <i class="fa fa-save"></i>
+                                                </button>
+
+                                                <button class="btn btn-dark d-block input-group-text"
+                                                    id="btnAdicionarNovaCategoriaProduto"
+                                                    onclick="adicionarNovaCategoriaProduto()">
+                                                    <i class="fa fa-plus-circle"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col m-auto text-center">
+                                            <button class="btn btn-primary uppercase letra" style="font-size: 0.8rem;"
+                                                data-bs-toggle="modal" data-bs-target="#modalListaCategorias">
+                                                <i class="fa fa-list">&nbsp;&nbsp;</i>
+                                                <span>Lista de Categorias</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="amostradeCategorias"></div>
+                                </div>
+
+                                <div class="col-6" style="border-right: 1px solid lightgray;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="title-main">Capas de Produtos</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col d-flex justify-content-center gap-2">
+                                            <button class="btn btn-primary uppercase letra" style="font-size: 0.85rem"
+                                                data-bs-toggle="modal" data-bs-target="#modalCadastroCapasProduto"
+                                                onclick="atualizaDataCadastroProduto(),
+                                                    atualizarNumerosCapas();"></i>
+                                                <i class="fa-regular fa-square-plus"></i>
+                                                <span>&nbsp;&nbsp;Cadastrar Capas</span>
+                                            </button>
+
+                                            <button class="btn btn-warning text-white uppercase letra"
+                                                style="font-size: 0.85rem" onclick="irParaGaleriaCapas()"
+                                                id="btngaleriaCapas">
+                                                <i class="fa-regular fa-images"></i>
+                                                <span>&nbsp;&nbsp;Galeria de Capas</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--PRODUTOS-->
+                    <div class="row my-3" style="min-width: 102%;">
+                        <div class="col">
+                            <div class="card card-principal">
+                                <div class="card-body" id="cardCadastroProdutos">
+
+                                    <!--CABECALHO DE CADASTRO DE PRODUTOS-->
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="m-1 mb-0 title-main">Produtos Cadastrados</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <button class="btn btn-success w-100 uppercase letra"
+                                                style="font-size: 0.8rem" data-bs-toggle="modal"
+                                                data-bs-target="#modalCadastroProduto" onclick="atualizaDataCadastroProduto(); 
+                                                                limparCadastroProduto(); 
+                                                                descongelarInputs();
+                                                                carregarInsumosFixos();">
+                                                <i class="fa-solid fa-box"></i>
+                                                <span>&nbsp;&nbsp;Cadastrar Único Produto</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-4">
+                                            <button class="btn btn-success w-100 uppercase letra"
+                                                style="font-size: 0.8rem" data-bs-toggle="modal"
+                                                data-bs-target="#modalCadastroMultiplosProduto" onclick="atualizaDataCadastroProduto(); 
+                                                                limparCadastroProduto(); 
+                                                                descongelarInputs();
+                                                                carregarInsumosFixos();">
+                                                <i class="fa-solid fa-boxes-stacked"></i>
+                                                <span>&nbsp;&nbsp;Cadastrar Múltiplos Produtos</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <hr>
+                                        </div>
+                                    </div>
+
+                                    <!--LABELS Identificadores dos campos que serão exibidos-->
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col titulo mb-3">
+                                                <div class="row titulo_col text-center">
+                                                    <div class="col-5"><label class="label-format">Nome do
+                                                            Produto</label></div>
+                                                    <div class="col-1"><label class="label-format w-75">Insumos</label>
+                                                    </div>
+                                                    <div class="col-1"><label
+                                                            class="label-format w-75">Plataforma</label></div>
+                                                    <div class="col-1"><label class="label-format w-50">Bruto</label>
+                                                    </div>
+                                                    <div class="col-1"><label class="label-format w-75">Liquido</label>
+                                                    </div>
+                                                    <div class="col-1"><label class="label-format w-50">Lucro</label>
+                                                    </div>
+                                                    <div class="col"><label class="label-format">&nbsp;</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="exibicaoProdutosCadastrados"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--MODAL CADASTRO PRODUTO INDIVIDUAL-->
+                <div class="modal fade" id="modalCadastroProduto" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+
+                            <!--CABEÇALHO MODAL CADASTRO DE PRODUTO-->
+                            <div class="modal-header">
+                                <div class="col-6">
+                                    <h5 class="modal-title title-main m-auto text-center">cadastro de novo produto</h5>
+                                </div>
+                                <div class="col-2">
+                                    <label for="" class="label-format mb-2">data do cadastro</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-primary text-white">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="date" class="form-control text-center" id="dataCadastroProduto">
+                                    </div>
+                                </div>
+                                <div class="col-">
+                                    <button type="button" class="btn-danger btn" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i class="fa fa-x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--FINAL CABEÇALHO MODAL CADASTRO PRODUTO-->
+
+                            <div class="modal-body">
+                                <!--PRIMEIRA LINHA DO CADASTRO DE PRODUTOS-->
+                                <div class="row" id="">
+                                    <!--CODIGO DO PRODUTO-->
+                                    <div class="col-2">
+                                        <label for="" class="label-format mb-1">código</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-barcode"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="codigoCadastroProduto" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!--NOME DO PRODUTO-->
+                                    <div class="col-5">
+                                        <label for="" class="label-format mb-1">nome do produto</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-tag"></i>
+                                            </span>
+                                            <input type="text" id="nomeCadastroProduto"
+                                                class="form-control text-center">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--SEGUNDA LINHA DE CADASTRO DE PRODUTOS-->
+                                <div class="row mt-3">
+                                    <!--PLATAFORMAS DE VENDA-->
+                                    <div class="col-3">
+                                        <label for="" class="label-format mb-1">PLATAFORMAS DE VENDA</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa-solid fa-shop"></i>
+                                            </span>
+                                            <select name="" id="plataformaCadastroProduto"
+                                                class="form-select text-center">
+                                                <option value="-">-</option>
+                                                <option value="Shopee">Shopee</option>
+                                                <option value="Elo7">Elo7</option>
+                                                <option value="Todas Plataformas" selected>Todas Plataformas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--CATEGORIA DO PRODUTO-->
+                                    <div class="col-3">
+                                        <label for="" class="label-format mb-1">categoria do produto</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-tag"></i>
+                                            </span>
+                                            <select name="" id="categoriaCadastroProduto"
+                                                class="form-select text-center">
+                                                <!-- As categorias serão carregadas aqui dinamicamente -->
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!--ESTOQUE PRODUTO-->
+                                    <div class="col-2">
+                                        <label for="" class="label-format mb-1">Estoque</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-boxes"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="estoqueCadastroProdutos">
+                                        </div>
+                                    </div>
+
+                                    <!--TEMPO DE PRODUÇÂO PRODUTO-->
+                                    <div class="col-2">
+                                        <label for="" class="label-format mb-1">Tempo de Produção</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-clock"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center "
+                                                id="tempoProducaoProduto">
+                                        </div>
+                                    </div>
+
+                                    <!--TEMPO DE ENVIO PRODUTO-->
+                                    <div class="col-2">
+                                        <label for="" class="label-format mb-1">Tempo para Envio</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-truck-fast"></i>
+                                            </span>
+                                            <input type="number" class="form-control text-center "
+                                                id="tempoEnvioProdutos" min="7" value="7">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!--CARD INSUMOS VARIAVEIS e FIXOS-->
+                            <div class="modal-body">
+                                <div class="row">
+
+                                    <!--INSUMOS FIXOS-->
+                                    <div class="card mb-2">
+                                        <div class="card-header">
+                                            <div class="row">
+                                                <div class="col-6 title-main text-center">
+                                                    Insumos Fixos
+                                                </div>
+                                                <div class="col-3 d-flex align-items-center">
+                                                    <label for="" class="label-format">
+                                                        CUSTO Total de INSUMOS Fixos
+                                                    </label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-dark text-white">
+                                                            <i class="fa-solid fa-brazilian-real-sign"></i>
+                                                        </span>
+                                                        <input type="text"
+                                                            class="form-control text-center bg-danger text-white"
+                                                            id="custoInsumosFixosCadastroProdutos" disabled
+                                                            value="0,00">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <button class="btn btn btn-outline-danger" type="button"
+                                                        onclick="verificaCollapseInsumosFixos()">
+                                                        <i class="fa-solid fa-chevron-down d-block"
+                                                            id="iconeInsumosProdutosFixos"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="collapse" id="infoInsumosFixosCadastroProdutos">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="row mt-4 d-flex justify-content-center">
+                                                        <div class="row">
+                                                            <div class="col-2">
+                                                                <label for="" class="label-format">Código</label>
+                                                            </div>
+                                                            <div class="col-5">
+                                                                <label for="" class="label-format">Nome Insumo
+                                                                    Fixo</label>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <label for="" class="label-format">Preço Minuto</label>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <label for="" class="label-format">P.Total</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-2" id="exibicaoInsumosFixos"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--FINAL INSUMOS FIXOS-->
+
+
+                                    <!--CARD INSUMOS VARIAVEIS-->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="row">
+                                                <div class="col-6 title-main text-center">
+                                                    Insumos Variáveis
+                                                </div>
+                                                <div
+                                                    class="col-3 d-flex justify-content-center align-items-center text-center">
+                                                    <label for="" class="label-format mb-1">CUSTO Total DE INSUMOS
+                                                        variáveis</label>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-dark text-white">
+                                                            <i class="fa-solid fa-brazilian-real-sign"></i>
+                                                        </span>
+                                                        <input type="text"
+                                                            class="form-control text-center bg-danger text-white"
+                                                            id="custoInsumosVariaveisCadastroProdutos" disabled
+                                                            value="0,00">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <button class="btn btn btn-outline-danger" type="button"
+                                                        onclick="verificaCollapseInsumosVariaveis()">
+                                                        <i class="fa-solid fa-chevron-down d-block"
+                                                            id="iconeInsumosProdutos"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="collapse" id="infoInsumosVariaveisCadastroProdutos">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="row mt-4 d-flex justify-content-center">
+                                                        <div class="row">
+                                                            <div class="col-2">
+                                                                <label for="" class="label-format">Código</label>
+                                                            </div>
+                                                            <div class="col-5">
+                                                                <label for="" class="label-format">Nome Insumo
+                                                                    Variável</label>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <label for="" class="label-format">Preço
+                                                                    Unitário</label>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <label for="" class="label-format">Qtd Uso</label>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <label for="" class="label-format">P.Total</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-2" id="exibicaoInsumosVariaveis"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--FINAL INSUMOS VARIAVEIS-->
+
+                                    <!--CUSTO TOTAL DE INSUMOS-->
+                                    <div class="card my-4">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-3"></div>
+                                                <div class="col bg-danger text-white text-center py-2 label-format fs-6"
+                                                    style="border-radius: 30px;">
+                                                    <span>Total de Custos com Insumos :&nbsp;</span>
+                                                    <span class="fw-bold">&nbsp;&nbsp;&nbsp;R$&nbsp;</span>
+                                                    <span id="exibicaoTotalCustoInsumosProduto" class="fw-bold"></span>
+                                                </div>
+                                                <div class="col-3"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--FINAL CARD INSUMOS VARIAVEIS-->
+
+                            <hr>
+
+                            <div class="modal-body">
+                                <div class="row m-auto" id="linhaCadastroProdutoShopee">
+                                    <!--PREÇO DE VENDA SHOPEE-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">Preço de Venda Shopee</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Shopee text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center w-75"
+                                                id="precoVendaShopeeCadastroProduto" oninput="calculaTaxas()">
+                                        </div>
+                                    </div>
+
+                                    <!--CUSTO SHOPEE-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">Custo Shopee</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Shopee text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="custoShopeeCadastroProduto" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!--LUCRO LÍQUIDO SHOPEE-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">LUCRO LÍQUIDO shopee</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Shopee text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="lucroLiquidoShopeeCadastroInsumo" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!--PERCENTUAL DE LUCRO-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">% LUCRO SHOPEE</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Shopee text-white">
+                                                <i class="fa-solid fa-percent"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="percentualLucroShopeeCadastroInsumo" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!--OBSERVAÇÃO DE VENDA-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">&nbsp;</label>
+                                        <button class="btn btn-success text-white d-none" id="btnPrecoIdealShopee">
+                                            <i class="fa-solid fa-check"></i>
+                                            <span>&nbsp;&nbsp; Preço Ideal</span>
+                                        </button>
+                                        <button class="btn bg-danger text-white d-none" id="btnPrecoBaixoShopee">
+                                            <i class="fa-solid fa-down-long"></i>
+                                            <span>&nbsp;&nbsp; Preço Baixo</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                                <div class="row my-2" id="linhaCadastroProdutoElo7">
+                                    <!--PREÇO DE VENDA ELO7-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">Preço de Venda Elo7</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Elo7 text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" id="precoVendaElo7CadastroProduto"
+                                                class="form-control text-center" oninput="calculaTaxas()">
+                                        </div>
+                                    </div>
+
+                                    <!--CUSTO ELO7-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">Custo Elo7</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Elo7 text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" id="custoElo7CadastroProduto"
+                                                class="form-control text-center" DISABLED>
+                                        </div>
+                                    </div>
+
+                                    <!--LUCRO LÍQUIDO ELO7-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">LUCRO LÍQUIDO Elo7</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Elo7 text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="lucroLiquidoElo7CadastroInsumo" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!--LUCRO LÍQUIDO-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">% LUCRO ELO7</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-Elo7 text-white">
+                                                <i class="fa-solid fa-brazilian-real-sign"></i>
+                                            </span>
+                                            <input type="text" class="form-control text-center"
+                                                id="percentualLucroElo7CadastroInsumo" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!--OBSERVAÇÃO DE VENDA-->
+                                    <div class="col">
+                                        <label for="" class="label-format mb-1">&nbsp;</label>
+                                        <button class="btn btn-success text-white d-none" id="btnPrecoIdealElo7">
+                                            <i class="fa-solid fa-check"></i>
+                                            <span>&nbsp;&nbsp; Preço Ideal</span>
+                                        </button>
+                                        <button class="btn bg-danger text-white d-none" id="btnPrecoBaixoElo7">
+                                            <i class="fa-solid fa-down-long"></i>
+                                            <span>&nbsp;&nbsp; Preço Baixo</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--FINAL INSUMOS FIXOS-->
+
+
+                            <div class="modal-footer">
+                                <div class="row m-auto">
+                                    <div class="col">
+                                        <button class="btn btn-success" onclick="salvarCadastroProduto()">
+                                            <i class="fa fa-save"></i>
+                                            <span>&nbsp;Salvar</span>
+                                        </button>
+                                        <button class="btn btn-primary" onclick="descongelarInputs(), calculaTaxas()">
+                                            <i class="fa fa-edit"></i>
+                                            <span>&nbsp;Editar</span>
+                                        </button>
+                                        <button class="btn btn-danger" onclick="limparCadastroProduto()">
+                                            <i class="fa fa-broom"></i>
+                                            <span>&nbsp;Limpar</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--MODAL MULTIPLOS CADASTRO PRODUTOS-->
+                <div class="modal fade" id="modalCadastroMultiplosProduto" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+
+                            <!--CABEÇALHO MODAL CADASTRO DE PRODUTO-->
+                            <div class="modal-header">
+                                <div class="col-6">
+                                    <h5 class="modal-title title-main m-auto text-center">
+                                        Cadastro em Massa de Produtos
+                                    </h5>
+                                </div>
+                                <div class="col-">
+                                    <button type="button" class="btn-danger btn" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i class="fa fa-x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--FINAL CABEÇALHO MODAL CADASTRO PRODUTO-->
+
+                            <div class="modal-body">
+                                <!--PRIMEIRA LINHA DO CADASTRO DE PRODUTOS-->
+                                <div class="row" id="">
+                                    <div class="col-10">
+                                        <!--ALERT DE INSTRUCOES-->
+                                        <!-- ALERT 1 -->
+                                        <div class="alert alert-primary label-format fade show" role="alert">
+                                            <ol>
+                                                <li>
+                                                    Para o cadastro em massa dos Produtos é necessário <b>baixar o
+                                                        arquivo modelo</b> clicando no Botão ao lado.
+                                                </li>
+                                                <li class="mt-3">
+                                                    Depois de baixar, <b>preencha o arquivo com os dados dos
+                                                        produtos</b> seguindo o modelo no arquivo baixado.
+                                                </li>
+                                                <li class="mt-3">
+                                                    <b>faça o upload do arquivo</b> preenchido para cadastrar os
+                                                    produtos em massa.
+                                                </li>
+                                            </ol>
+                                        </div>
+
+                                        <!-- ALERT 2 -->
+                                        <div class="alert alert-danger label-format alert-dismissible fade show"
+                                            role="alert">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                            <i
+                                                class="fa-solid fa-triangle-exclamation d-flex justify-content-center align-items-center fs-5">&nbsp;&nbsp;&nbsp;</i>
+                                            <span>
+                                                <u><b>A quantidade máxima</b></u> para cadastro em massa é de
+                                                <b><u>20 produtos por arquivo</u></b>.
+                                            </span>
+                                        </div>
+
+                                        <!-- ALERT 3 -->
+                                        <div class="alert alert-danger label-format text-start alert-dismissible fade show"
+                                            role="alert">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                            <i class="fa-solid fa-triangle-exclamation fs-5">&nbsp;&nbsp;&nbsp;</i>
+                                            <span>
+                                                Ao preencher o cadastro na Planilha <b><u>não salte linhas</u></b>
+                                                e siga a ordem de preenchimento do arquivo.
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col my-2 pb-3">
+                                        <button class="btn btn-primary w-50 h-100" onclick="baixarModeloProdutos()">
+                                            <i class="fa-solid fa-file-arrow-down fa-beat fs-1">
+                                            </i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                </div>
+
+                                <!--CAMPO PARA INSERIR ARQUIVO XLS-->
+                                <div class="row">
+                                    <div class="col d-flex align-items-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <ol>
+                                                    <li class="mb-2">Importe a Planilha preenchida ao lado</li>
+                                                    <li class="mb-2">Clique no ícone de Upload &nbsp;
+                                                        <b><i class="fa fa-upload"></i></b>
+                                                    </li>
+                                                    <li>Clique em Salvar para concluir o Cadastro</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 d-flex align-items-center">
+                                        <div class="input-group">
+                                            <input type="file" name="uploadArquivoCadastroMultiplosProdutos"
+                                                id="uploadArquivoCadastroMultiplosProdutos" class="form-control"
+                                                accept=".xls, .xlsx" onchange="verificarArquivoXLS()">
+                                            <span class="input-group-text btn bg-danger text-white"
+                                                onclick="exibirTabelaCadastroMultiplo()">
+                                                <i class="fa fa-upload"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 m-auto">
+                                        <button class="btn btn-sm btn-success label-format"
+                                            onclick="salvarCadastroMultiplo()" id="btnSalvarProdutoMassa">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                            <span class="ms-2">Salvar</span>
+                                        </button>
+                                        <button class="btn btn-sm btn-primary label-format" onclick="limparInputXls()">
+                                            <i class="fa-solid fa-broom"></i>
+                                            <span class="ms-2">limpar</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!--CAMPO DE EXIBIÇÂO DE ARQUIVOS IMPORTADOS-->
+                                <div class="row mt-3">
+                                    <hr>
+                                </div>
+
+                                <div class="row d-none mb-5" id="campoExibicaoTabelaCadastroMultiplosProdutos">
+                                    <div class="col">
+
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover">
+                                                <thead class="table-secondary text-center">
+                                                    <tr>
+                                                        <th>Código</th>
+                                                        <th>Nome do Produto</th>
+                                                        <th>Categoria</th>
+                                                        <th>Preço Shopee</th>
+                                                        <th>Preço Elo7</th>
+                                                        <th>Tempo Envio</th>
+                                                        <th>Tempo Produção</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="corpoTabelaCadastroMultiplosProdutos" class="text-center">
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- AQUI ESTÁ O BOTÃO, FORA DA TABLE! -->
+                                        <button class="btn btn-primary mt-3" id="btnSubirUploadProdutoMassa"
+                                            onclick="rolarParaSalvar('btnSalvarProdutoMassa', 500)">
+                                            <i class="fa-solid fa-arrow-up fa-bounce"></i>
+                                        </button>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row d-none" id="linhaArquivoXlsProdutoMassa">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODAL CADASTRO CAPAS PRODUTOS -->
+                <div class="modal fade" id="modalCadastroCapasProduto" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+
+                            <!-- CABEÇALHO MODAL CADASTRO DE PRODUTO -->
+                            <div class="modal-header">
+                                <div class="col-6">
+                                    <h5 class="modal-title title-main m-auto text-center">Cadastrar Capas de Produtos
+                                    </h5>
+                                </div>
+                                <div class="col-2">
+                                    <label class="label-format mb-2">Data do Cadastro</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-primary text-white">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="date" class="form-control text-center" id="dataCadastroCapas"
+                                            disabled>
+                                    </div>
+                                </div>
+                                <div class="col-">
+                                    <button type="button" class="btn-danger btn" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i class="fa fa-x"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- DADOS DO PRODUTO RELACIONADO A CAPA-->
+                            <div class="modal-body">
+                                <div class="row">
+
+                                    <!--NOME DO PRODUTO-->
+                                    <div class="col d-none">
+                                        <label class="label-format mb-2">Nome do Produto</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa fa-tag"></i>
+                                            </span>
+                                            <select id="inputNomeProdutoCapas" class="form-select text-center"
+                                                onchange="atualizarNumerosCapas()">
+                                                <option value="todos">Todos</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!--VARIACAO DA CAPA-->
+                                    <div class="col-3">
+                                        <label class="label-format mb-2 w-75">Variação da Capa</label>
+                                        <div class="input-group w-75">
+                                            <span class="input-group-text bg-primary text-white">
+                                                <i class="fa-solid fa-venus-mars"></i>
+                                            </span>
+                                            <select id="variacaoCapa" class="form-select text-center"
+                                                onchange="atualizarNumerosCapas()">
+                                                <option value="-">-</option>
+                                                <option value="Feminino" selected>Feminino</option>
+                                                <option value="Masculino">Masculino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!--BTN SALVAR CAPAS-->
+                                    <div class="col">
+                                        <label class="label-format mb-2">&nbsp;</label>
+                                        <button class="btn btn-success" onclick="adicionarCadastroCapasProduto()">
+                                            <i class="fa fa-save"></i>
+                                            <span>&nbsp;Salvar Capas</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!-- EXIBIÇÃO CAPAS -->
+                            <div class="modal-body" id="campoExibicaoCadastroCapas">
+                                <div class="row">
+                                    <!-- CAPA 1 -->
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <!--BUTON DE LIMPAR EXIBICAO DA CAPA 01-->
+                                            <div class="card-header">
+                                                <button class="btn btn-sm btn-color text-white w-100"
+                                                    onclick="limparCamposCard(1)">
+                                                    <i class="fa-solid fa-rotate-left fa-spin fa-spin-reverse"></i>
+                                                    <span>&nbsp;Trocar Imagem</span>
+                                                </button>
+                                            </div>
+
+                                            <!--ID DA CAPA 01-->
+                                            <div class="card-header">
+                                                <div class="row">
+
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text bg-secondary text-white">
+                                                                <i class="fa-solid fa-hashtag"></i>
+                                                            </span>
+                                                            <input type="number" id="inputNumeroCapa1"
+                                                                class="form-control text-center" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 d-flex justify-content-center align-items-center">
+                                                        <label class="label-format fw-bold fs-6">Numº da Capa</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--INPUT PARA INSERIR CAPA 01-->
+                                            <div class="card-body">
+                                                <input type="file" class="form-control" id="imagemProduto1"
+                                                    accept="image/*">
+                                            </div>
+
+                                            <!--CAMPO DE EXIBICAO DA CAPA 01-->
+                                            <div class="card-footer">
+                                                <img id="previewImagemProduto1" src="" alt="Pré-visualização"
+                                                    class="img-fluid rounded-bottom"
+                                                    style="width:100%; height:auto; display:none; object-fit:cover; border-radius:30px;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- CAPA 2 -->
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <!--BUTON DE LIMPAR EXIBICAO DA CAPA 02-->
+                                            <div class="card-header">
+                                                <button class="btn btn-sm btn-color text-white w-100"
+                                                    onclick="limparCamposCard(2)">
+                                                    <i class="fa-solid fa-rotate-left fa-spin fa-spin-reverse"></i>
+                                                    <span>&nbsp;Trocar Imagem</span>
+                                                </button>
+                                            </div>
+
+                                            <!--ID DA CAPA 02-->
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text bg-secondary text-white">
+                                                                <i class="fa-solid fa-hashtag"></i>
+                                                            </span>
+                                                            <input type="number" id="inputNumeroCapa2"
+                                                                class="form-control text-center" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 d-flex justify-content-center align-items-center">
+                                                        <label class="label-format fw-bold fs-6">Numº da Capa</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--INPUT PARA INSERIR CAPA 02-->
+                                            <div class="card-body">
+                                                <input type="file" class="form-control" id="imagemProduto2"
+                                                    accept="image/*">
+                                            </div>
+
+                                            <!--CAMPO DE EXIBICAO DA CAPA 02-->
+                                            <div class="card-footer">
+                                                <img id="previewImagemProduto2" src="" alt="Pré-visualização"
+                                                    class="img-fluid rounded-bottom"
+                                                    style="width:100%; height:auto; display:none; object-fit:cover; border-radius:30px;">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- CAPA 3 -->
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <!--BUTON DE LIMPAR EXIBICAO DA CAPA 03-->
+                                            <div class="card-header">
+                                                <button class="btn btn-sm btn-color text-white w-100"
+                                                    onclick="limparCamposCard(3)">
+                                                    <i class="fa-solid fa-rotate-left fa-spin fa-spin-reverse"></i>
+                                                    <span>&nbsp;Trocar Imagem</span>
+                                                </button>
+                                            </div>
+
+                                            <!--ID DA CAPA 03-->
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text bg-secondary text-white">
+                                                                <i class="fa-solid fa-hashtag"></i>
+                                                            </span>
+                                                            <input type="number" id="inputNumeroCapa3"
+                                                                class="form-control text-center" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 d-flex justify-content-center align-items-center">
+                                                        <label class="label-format fw-bold fs-6">Numº da Capa</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--INPUT PARA INSERIR CAPA 03-->
+                                            <div class="card-body">
+                                                <input type="file" class="form-control" id="imagemProduto3"
+                                                    accept="image/*">
+                                            </div>
+
+                                            <!--CAMPO DE EXIBICAO DA CAPA 03-->
+                                            <div class="card-footer">
+                                                <img id="previewImagemProduto3" src="" alt="Pré-visualização"
+                                                    class="img-fluid rounded-bottom"
+                                                    style="width:100%; height:auto; display:none; object-fit:cover; border-radius:30px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--MODAL LISTA DE CATEGORIAS-->
+                <div class="modal fade" id="modalListaCategorias" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title title-main m-auto">
+                                    Lista de Categorias de Produtos</h5>
+                                <button type="button" class="btn-danger btn" data-bs-dismiss="modal" aria-label="Close">
+                                    <i class="fa fa-x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row" id="campoListaCompletaCategorias"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Final do conteúdo Principal-->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+
+        <!--JS-->
+        <script src="/DEV SECULAR/Js/produtos.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+            integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>

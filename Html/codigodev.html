@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Monikriativa - Área DEV</title>
+
+        <!--CSS-->
+        <link rel="stylesheet" href="/DEV SECULAR/css/monikriativa.css">
+
+        <!--FONTAWESOME-->
+        <script src="https://kit.fontawesome.com/e9987e6d2b.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+
+        <!--BOOTSTRAP-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+
+    <body>
+        <!-- Início do Menu Lateral -->
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+            style="width: 280px; height: 100%; position: fixed;" id="lateral-menu">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <div class="row">
+                    <a href="/SELLER/00 - HTML/00-index_padrao.html" style="text-decoration: none; color: white">
+                        <div id="title-brand">
+                            <span class="">Monikriativa</span>
+                        </div>
+                        <div id="subtitulo-brand">
+                            <span class="">Papelaria Artesanal Criativa</span>
+                        </div>
+                    </a>
+                </div>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto" id="menu-lateral">
+                <li class="">
+                    <a href="index.html" class="nav-link text-white">
+                        <i class="fa-solid fa-house">&nbsp;</i>
+                        <span>Início</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vendas.html" class="nav-link text-white">
+                        <i class="fa-solid fa-cart-shopping">&nbsp;</i>
+                        <span>Minhas Vendas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="produtos.html" class="nav-link text-white">
+                        <i class="fa-solid fa-table">&nbsp;</i>
+                        <span>Produtos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="insumos.html" class="nav-link text-white">
+                        <i class="fa-solid fa-table">&nbsp;</i>
+                        <span>Insumos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html" class="nav-link text-white">
+                        <i class="fa-solid fa-users">&nbsp;</i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fornecedores.html" class="nav-link text-white">
+                        <i class="fa-solid fa-truck">&nbsp;</i>
+                        <span>Fornecedores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="estoque.html" class="nav-link text-white">
+                        <i class="fa-solid fa-boxes-packing">&nbsp;</i>
+                        <span>Gestão de Estoque</span>
+                    </a>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li>
+                    <a href="financeiro.html" class="nav-link text-white">
+                        <i class="fa-solid fa-sack-dollar">&nbsp;</i>
+                        <span>Meu Financeiro</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="permissoes.html" class="nav-link text-white">
+                        <i class="fa-solid fa-lock-open">&nbsp;</i>
+                        <span>Acessos e Permissões</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="nav-link text-white">
+                        <i class="fa-solid fa-gear">&nbsp;</i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li>
+                    <a href="codigodev.html" class="nav-link text-white">
+                        <button class="btn btn-primary w-100">
+                            <i class="fa-solid fa-code">&nbsp;</i>
+                            <span class="code-dev">área Dev</span>
+                        </button>
+                    </a>
+                </li>
+                <li>
+                    <hr>
+                </li>
+                <li class="d-flex justify-content-center">
+                    <button class="btn btn-danger w-100" onclick="muda_badge() , balancarSino()">Teste de Badge</button>
+                </li>
+            </ul>
+        </div>
+        <!--Final do Menu Lateral-->
+
+        <!--BADGE-->
+        <!--Botão Alerta de Notificações-->
+        <div>
+            <button class="btn btn-warning text-white" id="button-alert-main">
+                <i class="fa-solid fa-bell" id="sinoNotificacao"></i>
+                <span class="badge rounded-pill bg-danger" id="badge-notificacao"></span>
+            </button>
+        </div>
+        <!--FINAL BADGE-->
+
+        <!--Botão Loja Shopee-->
+        <div id="btnShopee">
+            <a href="https://seller.shopee.com.br/" target="_blank">
+                <button class="btn btn-orange text-white" id="button-shopee">
+                    <span class="label-format">Shopee</span>
+                    <i class="fa-solid fa-store"></i>
+                </button>
+            </a>
+        </div>
+
+        <!--Botão Loja Elo7-->
+        <div id="btnElo7">
+            <a href="https://www.elo7.com.br/monikriativa" target="_blank">
+                <button class="btn btn-orange text-white" id="button-Elo7">
+                    <span class="label-format">Elo7</span>
+                    <i class="fa-solid fa-store"></i>
+                </button>
+            </a>
+        </div>
+
+        <!-- Início do Conteúdo Principal -->
+        <div class="b-example-divider">
+            <div class="container" style="margin-left: 280px; min-width: 89%; max-width: 90%;">
+                <div class="row" class="cards-inicial">
+                    <div class="col-11">
+                        <div class="col mt-4">
+                            <!--CARD COM BOTÔES SELETORES-->
+                            <div class="card card-principal">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-3">
+                                            <button class="btn btn-success text-uppercase"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalCadastroDev" 
+                                            style="
+                                            font-size: 0.9rem; 
+                                            letter-spacing: 1px;
+                                            font-weight: 700;">
+                                                <i class="fa fa-code">&nbsp;&nbsp;</i>
+                                                Adicionar Função
+                                            </button>
+                                        </div>
+                                        <div class="col" id="btnsCodigoDev">
+
+                                            <!--BUTTON GITHUB-->
+                                            <a href="https://github.com/" target="_blank">
+                                                <button class="btn btn-dark label-format">
+                                                    <i class="fa-brands fa-github"></i>
+                                                    <span style="font-size: 0.8rem">&nbsp;GitHub</span>
+                                                </button>
+                                            </a>
+
+                                            <!--BUTTON FONTAWESOME-->
+                                            <a href="https://fontawesome.com/icons" target="_blank">
+                                                <button class="btn btn-primary label-format">
+                                                    <i class="fa-brands fa-font-awesome"></i>
+                                                    <span style="font-size: 0.8rem">&nbsp;FontAwesome</span>
+                                                </button>
+                                            </a>
+
+                                            <!--BUTTON BOOTSTRAP ELEMENTS-->
+                                            <a href="https://getbootstrap.com/" target="_blank">
+                                                <button class="btn btn-purple label-format">
+                                                    <i class="fa-brands fa-bootstrap"></i>
+                                                    <span style="font-size: 0.8rem">&nbsp;Bootstrap</span>
+                                                </button>
+                                            </a>
+
+                                            <!--BUTTON BOOTSTRAP ICONS-->
+                                            <a href="https://icons.getbootstrap.com/" target="_blank">
+                                                <button class="btn btn-purple label-format">
+                                                    <i class="fa-brands fa-bootstrap"></i>
+                                                    <span style="font-size: 0.8rem">&nbsp;Bootstrap ICONS</span>
+                                                </button>
+                                            </a>
+
+                                            <!--BUTTON CHATGPT-->
+                                            <a href="https://chatgpt.com/" target="_blank">
+                                                <button class="btn btn-dark label-format">
+                                                    <i class="fa-solid fa-robot"></i> 
+                                                    <span style="font-size: 0.8rem">&nbsp;ChatGPT</span>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--CAMPO DE CORREÇÃO DE URL PARA GIT-->
+                            <div class="card card-principal my-3">
+                                <div class="card-header title-main text-center">
+                                    correção de URL para PUSH / COMMIT em Git
+                                </div>
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-6">
+                                            <label for="urlCorrecaoGit" class="label-format mb-1">
+                                                URL 
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control text-center" 
+                                                id="urlCorrecaoGit" 
+                                                oninput="atualizaBotaoLink()"
+                                                placeholder="Digite a URL do Local dos Arquivos Codados">
+                                                <span class="input-group-text bg-primary text-white" 
+                                                onclick="limpaUrlGit()">
+                                                    <i class="fa fa-eraser"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer" id="btnInsereGit">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button class="btn btn-outline-primary w-100 label-format" 
+                                            id="linkGit" data-clipboard="" onclick="copiarBotao(this)">
+                                                cd LINK
+                                            </button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-outline-primary w-100 label-format" 
+                                            id="gitAdd" data-clipboard="git add ." onclick="copiarBotao(this)">
+                                                git add .
+                                            </button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-outline-primary w-100 label-format" 
+                                            id="gitCommit" data-clipboard='git commit -m ""' onclick="copiarBotao(this)">
+                                                git commit -m ""
+                                            </button>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-outline-primary w-100 label-format" 
+                                            id="gitPush" data-clipboard="git push" onclick="copiarBotao(this)">
+                                                git push
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!--CARD QUE MOSTRA OS CODIGOS DEV-->
+                            <div class="card card-principal mt-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card">
+                                                <div class="card-header title-main text-center">
+                                                    <div class="row">
+                                                        <div class="col text-center">
+                                                            Funcões Javascript
+                                                        </div>
+
+                                                        <!--BUTTON DE REFRESH DA PAGINA-->
+                                                        <div class="col-1">
+                                                            <button class="btn btn-sm btn-dark"
+                                                            onclick="refresh()">
+                                                                <i class="fa fa-refresh"></i>
+                                                            </button>
+                                                        </div>
+
+                                                        <!--BUTTON DE BAIXAR ARQUIVO TXT DOS CODIGOS GRAVADOS-->
+                                                        <div class="col-1">
+                                                            <button class="btn btn-sm btn-success" 
+                                                            onclick="baixarCodigosFuncoes()">
+                                                                <i class="fa fa-download"></i>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="accordion" id="accordionFuncoes"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="card">
+                                                <div class="card-header title-main text-center">
+                                                    Estilização de Elementos
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="accordion" id="accordionElementos"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--MODAL CADASTRO DE CODIGO DEV-->
+                            <div class="modal fade" id="modalCadastroDev" tabindex="-1" 
+                            aria-labelledby="" aria-hidden="true">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="col">
+                                                <h5 class="modal-title title-main text-center" 
+                                                id="">
+                                                    Cadastro de Atalho de Código DEV
+                                                </h5>
+                                            </div>
+                                            <div class="col-1">
+                                                <button type="button" 
+                                                class="btn bg-danger text-white" 
+                                                data-bs-dismiss="modal" aria-label="Fechar">
+                                                <i class="fa fa-x"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-body" id="">
+                                            <div class="card">
+                                                <!--CABEÇALHO DO CARD-->
+                                                <div class="card-header">
+                                                    <div class="row mt-2">
+
+                                                        <!--APELIDO DO CODIGO-->
+                                                        <div class="col-3">
+                                                            <label for="" class="label-format mb-3">
+                                                                Apelido do Código
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text bg-primary text-white">
+                                                                    <i class="fa fa-tag"></i>
+                                                                </span>
+                                                                <input type="text" 
+                                                                class="form-control"
+                                                                id="apelidoCodigoDev">
+                                                            </div>
+                                                        </div>
+
+                                                        <!--CATEGORIA DO CODIGO-->
+                                                        <div class="col-4">
+                                                            <label for="" class="label-format mb-3">
+                                                                Categoria do Código
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text bg-primary text-white">
+                                                                    <i class="fa fa-tag"></i>
+                                                                </span>
+                                                                <select name="" id="categoriaCodigoDev" 
+                                                                class="form-select text-center">
+                                                                    <option value="-">-</option>
+                                                                    <option value="Funções Javascript">
+                                                                        Funções Javascript
+                                                                    </option>
+                                                                    <option value="Estilização de Elementos">
+                                                                        Estilização de Elementos
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <!--DESCRIÇÃO DO CÓDIGO-->
+                                                        <div class="col">
+                                                            <label for="" class="label-format mb-3">
+                                                                Breve Descrição da função do Código
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text bg-primary text-white">
+                                                                    <i class="fa-solid fa-quote-left"></i>
+                                                                </span>
+                                                                <textarea name="" id="descricaoCodigoDev" 
+                                                                class="form-control" rows="1"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--CAMPO DO CÓDIGO DEV-->
+                                                <div class="card-footer">
+
+                                                    <!--CODIGO DEV-->
+                                                    <div class="col">
+                                                        <label for="" class="mt-3 mb-2 label-format">
+                                                            código de programação
+                                                        </label>
+                                                        <textarea name="" id="codigoDev" 
+                                                        class="form-control mb-2" rows="15"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <!--BUTTONS-->
+                                                <div class="card-footer">
+                                                    <div class="row">
+                                                        <div class="col"></div>
+                                                        <div class="col-2">
+                                                            <button class="btn btn-success w-100"
+                                                            onclick="salvarAtalhoCodigoDev()">
+                                                                <i class="fa fa-save">&nbsp;</i>
+                                                                <span>Salvar</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <button class="btn btn-primary w-100">
+                                                                <i class="fa fa-edit">&nbsp;</i>
+                                                                <span>Editar</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <button class="btn btn-danger w-100">
+                                                                <i class="fa fa-broom">&nbsp;</i>
+                                                                <span>Limpar</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--MODAL CADASTRO DE CATEGORIAS DE CODIGOS DEV-->
+                            <div class="modal fade" id="modalCadastroCategoriasCodigoDev" tabindex="-1" 
+                            aria-labelledby="" aria-hidden="true">
+                                <div class="modal-dialog modal-md" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="col">
+                                                <h5 class="modal-title title-main text-center" 
+                                                id="">
+                                                    Cadastro de Categorias<br>
+                                                    Código Dev
+                                                </h5>
+                                            </div>
+                                            <div class="col-1">
+                                                <button type="button" 
+                                                class="btn bg-danger text-white" 
+                                                data-bs-dismiss="modal" aria-label="Fechar">
+                                                <i class="fa fa-x"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-body" id="">
+                                            <div class="card">
+                                                <!--CABEÇALHO DO CARD-->
+                                                <div class="card-header">
+                                                    <div class="row mt-2">
+                                                        <!--NOME DA CATEGORIA DE CODIGO DEV-->
+                                                        <div class="col">
+                                                            <label for="" class="label-format mb-3">
+                                                                Nome da Categoria
+                                                            </label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text bg-primary text-white">
+                                                                    <i class="fa fa-tag"></i>
+                                                                </span>
+                                                                <input type="text" 
+                                                                class="form-control"
+                                                                id="insereCategoriaCodigoDev">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                        
+                                                <!--BUTTONS-->
+                                                <div class="card-footer">
+                                                    <div class="row">
+                                                        <div class="col-1"></div>
+                                                        <div class="col">
+                                                            <button class="btn btn-success w-100"
+                                                            onclick="salvarCategoriaCodigoDev()">
+                                                                <i class="fa fa-save">&nbsp;</i>
+                                                                <span>Salvar</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-primary w-100">
+                                                                <i class="fa fa-edit">&nbsp;</i>
+                                                                <span>Editar</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-danger w-100">
+                                                                <i class="fa fa-broom">&nbsp;</i>
+                                                                <span>Limpar</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-1"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+        <!--JS-->
+        <script src="/DEV SECULAR/Js/codigodev.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+
+    </body>
+</html>

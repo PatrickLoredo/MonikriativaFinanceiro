@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monikriativa - Minhas Vendas</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/DEV SECULAR/css/monikriativa.css">
+
+    <!--JS-->
+    <script src="/DEV SECULAR/Js/produtos.js" defer></script>
+    <script src="/DEV SECULAR/Js/vendas.js" defer></script>
+
+    <!--FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/e9987e6d2b.js" crossorigin="anonymous"></script>
+
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!--BOOTSTRAP ICONS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body id="pagina-vendas">
+    <!-- Início do Menu Lateral -->
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+        style="width: 280px; height: 100%; position: fixed;" id="lateral-menu">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <div class="row">
+                <a href="/SELLER/00 - HTML/00-index_padrao.html" style="text-decoration: none; color: white">
+                    <div id="title-brand">
+                        <span class="">Monikriativa</span>
+                    </div>
+                    <div id="subtitulo-brand">
+                        <span class="">Papelaria Artesanal Criativa</span>
+                    </div>
+                </a>
+            </div>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto" id="menu-lateral">
+            <li class="">
+                <a href="index.html" class="nav-link text-white">
+                    <i class="fa-solid fa-house">&nbsp;</i>
+                    <span>Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="vendas.html" class="nav-link text-white active">
+                    <i class="fa-solid fa-cart-shopping">&nbsp;</i>
+                    <span>Minhas Vendas</span>
+                </a>
+            </li>
+            <li>
+                <a href="produtos.html" class="nav-link text-white">
+                    <i class="fa-solid fa-table">&nbsp;</i>
+                    <span>Produtos</span>
+                </a>
+            </li>
+            <li>
+                <a href="insumos.html" class="nav-link text-white">
+                    <i class="fa-solid fa-table">&nbsp;</i>
+                    <span>Insumos</span>
+                </a>
+            </li>
+            <li>
+                <a href="clientes.html" class="nav-link text-white">
+                    <i class="fa-solid fa-users">&nbsp;</i>
+                    <span>Clientes</span>
+                </a>
+            </li>
+            <li>
+                <a href="fornecedores.html" class="nav-link text-white">
+                    <i class="fa-solid fa-truck">&nbsp;</i>
+                    <span>Fornecedores</span>
+                </a>
+            </li>
+            <li>
+                <a href="estoque.html" class="nav-link text-white">
+                    <i class="fa-solid fa-boxes-packing">&nbsp;</i>
+                    <span>Gestão de Estoque</span>
+                </a>
+            </li>
+            <li>
+                <hr>
+            </li>
+            <li>
+                <a href="financeiro.html" class="nav-link text-white">
+                    <i class="fa-solid fa-sack-dollar">&nbsp;</i>
+                    <span>Meu Financeiro</span>
+                </a>
+            </li>
+            <li>
+                <a href="permissoes.html" class="nav-link text-white">
+                    <i class="fa-solid fa-lock-open">&nbsp;</i>
+                    <span>Acessos e Permissões</span>
+                </a>
+            </li>
+            <li>
+                <a href="configuracoes.html" class="nav-link text-white">
+                    <i class="fa-solid fa-gear">&nbsp;</i>
+                    <span>Configurações</span>
+                </a>
+            </li>
+            <li>
+                <hr>
+            </li>
+            <li>
+                <a href="codigodev.html" class="nav-link text-white">
+                    <button class="btn btn-primary w-100">
+                        <i class="fa-solid fa-code">&nbsp;</i>
+                        <span class="code-dev">área Dev</span>
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--Final do Menu Lateral-->
+
+    <!--BADGE-->
+    <!--Botão Alerta de Notificações-->
+    <div>
+        <button class="btn btn-warning text-white" id="button-alert-main">
+            <i class="fa-solid fa-bell" id="sinoNotificacao"></i>
+            <span class="badge rounded-pill bg-danger" id="badge-notificacao"></span>
+        </button>
+    </div>
+    <!--FINAL BADGE-->
+
+    <!--Botão Data e Hora-->
+    <div>
+        <button class="btn btn-dark uppercase" id="buttonTime" style="font-size: 0.9rem; letter-spacing: 1px;"></button>
+    </div>
+
+    <!-- Início do Conteúdo Principal -->
+    <div class="b-example-divider container-fluid">
+        <div class="container" style="margin-left: 280px; min-width: 50%; max-width: 86.5%;">
+            <div class="row" id="cards-inicial-vendas">
+                <div class="col-11">
+
+                    <!--RESUMO DE VENDAS-->
+                    <div class="row my-3" id="resumo_vendas">
+                        <div class="col">
+                            <div class="card card-principal" id="cardResumoVendas">
+                                <div class="card-body">
+
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="m-1 mb-0 title-main">Resumo de Vendas</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="d-flex justify-content-end">
+                                                <div class="input-group" id="selectFiltroResumoVendas">
+                                                    <select id="filtroResumoPeriodo" class="form-select text-center"
+                                                        aria-label="Default select example">
+                                                        <option value="0"> - - - Selecione o Período - - - </option>
+                                                        <option value="1">Últimos 7 dias</option>
+                                                        <option value="2">Últimos 30 dias</option>
+                                                        <option value="3">Últimos 60 dias</option>
+                                                        <option value="4">Últimos 90 dias</option>
+                                                        <option value="5">Este Mês</option>
+                                                        <option value="6">Mês Anterior</option>
+                                                        <option value="7">Este Ano</option>
+                                                        <option value="8">Todas Vendas</option>
+                                                    </select>
+                                                    <span class="input-group-text bg-danger text-white">
+                                                        <i class="fa-solid fa-filter"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="row text-center">
+                                        <div class="col"></div>
+                                        <div class="col-2">
+                                            <label>Vendas Realizadas</label>
+                                            <div class="input-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-dark text-white">
+                                                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control text-center uppercase letra"
+                                                        id="resumoTotalVendas" disabled style="font-size: 0.85rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <label>Produtos Vendidos</label>
+                                            <div class="input-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-dark text-white">
+                                                        <i class="fa-solid fa-basket-shopping"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control text-center uppercase letra"
+                                                        id="resumoProdutosVendidos" disabled
+                                                        style="font-size: 0.85rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <label>Total Bruto</label>
+                                            <div class="input-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-dark text-white">
+                                                        <i class="fa fa-brazilian-real-sign"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control text-center uppercase letra"
+                                                        id="resumoTotalBruto" disabled style="font-size: 0.85rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <label>Total Líquido</label>
+                                            <div class="input-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-dark text-white">
+                                                        <i class="fa fa-brazilian-real-sign"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control text-center uppercase letra"
+                                                        id="resumoTotalLiquido" disabled style="font-size: 0.85rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <label>Ticket Médio</label>
+                                            <div class="input-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-dark text-white">
+                                                        <i class="fa fa-brazilian-real-sign"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control text-center uppercase letra"
+                                                        id="resumoTicketMedio" disabled style="font-size: 0.85rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col"></div>
+                                        <div class="col-8">
+                                            <label>Campeão de Vendas</label>
+                                            <div class="input-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-dark text-white">
+                                                        <i class="fa-solid fa-medal"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control text-center uppercase letra"
+                                                        id="resumoCampeaoVendas" disabled style="font-size: 0.85rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ADICIONAR VENDA MANUAL -->
+                    <div class="row mt-3" id="pagina_lateral">
+                        <div class="col">
+                            <div class="card card-principal">
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <div class="col-3 mt-3">
+                                            <button class="btn btn-primary m-auto w-100" data-bs-toggle="modal"
+                                                data-bs-target="#modalCadastroVenda" onclick="limparCamposVendaManual(), 
+                                                geraCodigoVendaManual(), 
+                                                defineDataSelect(),
+                                                verificaDiaSemana(), 
+                                                verificaTempoEnvio(),
+                                                populaSelectProdutosCadastrados('produtoVendaManual_1')">
+                                                <i class="fa-solid fa-circle-plus "></i>&nbsp;&nbsp;
+                                                <span class="letra uppercase">cadastrar Venda</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="col-3 mt-3">
+                                            <button class="btn btn-primary m-auto w-100">
+                                                <i class="fa-solid fa-search "></i>&nbsp;&nbsp;
+                                                <span class="letra uppercase">Pesquisar Venda</span>&nbsp;&nbsp;
+                                                <i class="fa-solid fa-angle-down"></i>
+                                            </button>
+                                        </div>
+
+                                        <div class="col-2" id="paginacaoVendas">
+                                            <label class="label-format">Qtd Vendas Exibição</label>
+                                            <select id="selectQtdVendas" class="form-select text-center uppercase letra"
+                                                style="font-size: 0.75rem;">
+                                                <option value="3">03 vendas</option>
+                                                <option value="5">05 vendas</option>
+                                                <option value="10">10 vendas</option>
+                                                <option value="50">50 vendas</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-1"></div>
+
+                                        <div class="col mt-3" id="botoesPaginacaoContainer">
+                                            <button id="btnPrevPage" class="btn btn-primary"><i
+                                                    class="fa fa-chevron-left"></i></button>
+                                            <span id="infoPagina" class="mx-2"></span>
+                                            <button id="btnNextPage" class="btn btn-primary"><i
+                                                    class="fa fa-chevron-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXIBICAO DE VENDAS MANUAIS -->
+                    <div class="row mt-3" id="vendasRealizadas">
+                        <div class="col">
+                            <div class="card card-principal">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="m-1 mb-0 title-main">vendas Realizadas</div>
+                                        </div>
+                                        <div class="col"></div>
+                                        <div class="col-4">
+                                            <div id="paginacao" class="d-flex align-items-center gap-2 m-1"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- CAMPO DE PESQUISA COLLAPSE -->
+                                <div class="card-footer">
+                                    <div class="" id="campoExibicaoVendas"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL DE CADASTRO DE VENDA MANUAL -->
+                    <div class="modal fade" id="modalCadastroVenda" tabindex="-1"
+                        aria-labelledby="modalCadastroVendaLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="col">
+                                        <h5 class="modal-title title-main text-center" id="modalCadastroVendaLabel">
+                                            Adicionar Venda Manual
+                                        </h5>
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="button" class="btn bg-danger text-white" data-bs-dismiss="modal"
+                                            aria-label="Fechar">
+                                            <i class="fa fa-x"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!--MODAL BODY DE INFORMAÇOES DA VENDA-->
+                                <div class="modal-body" id="modalBodyCadastroManualVenda">
+                                    <div class="card">
+
+                                        <!--CABEÇALHO DO CARD CODIGO / DATA VENDA / PLATAFORMA/ STATUS ENTREGA-->
+                                        <div class="card-header">
+                                            <div class="row d-flex justify-content-center">
+                                                <!--CODIGO INTERNO VENDA-->
+                                                <div class="col-3">
+                                                    <label for="" class="mb-2">Código Interno</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-primary text-white">
+                                                            <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control text-center"
+                                                            id="codigoVendaManual" disabled>
+                                                    </div>
+                                                </div>
+
+                                                <!--CODIGO PLATAFORMA-->
+                                                <div class="col-4">
+                                                    <label for="" class="mb-2">Código Venda - Plataforma</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-primary text-white">
+                                                            <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
+                                                        </span>
+                                                        <input type="text" class="form-control text-center"
+                                                            id="codigoPlataformaVendaManual">
+                                                    </div>
+                                                </div>
+
+                                                <!--DATA VENDA-->
+                                                <div class="col">
+                                                    <label for="" class="mb-2">
+                                                        <span>Data da Venda</span>&nbsp;&nbsp;
+                                                        <span class="fw-bold" style="
+                                                            font-size: 0.55rem;
+                                                            border-radius: 30px;
+                                                            color: white;
+                                                            width: 90px;
+                                                            height: 20px;
+                                                            padding-top: 3px;
+                                                            text-align: center;" id="diaSemanaVenda"></span>
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-warning text-white">
+                                                            <i class="fa-solid fa-calendar-days"></i>
+                                                        </span>
+                                                        <input type="date" name="" id="dataVendaManual"
+                                                            class="form-control text-center" oninput="verificaDiaSemana(),
+                                                            calcularDataEnvioUtil()">
+                                                    </div>
+                                                </div>
+
+                                                <!--DATA ENVIO-->
+                                                <div class="col">
+                                                    <label for="" class="mb-2">Data do Envio</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-dark text-white">
+                                                            <i class="fa-regular fa-calendar"></i>
+                                                        </span>
+                                                        <input type="date" id="dataEntregaManual"
+                                                            class="form-control text-center">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <!--PLATAFORMA-->
+                                                <div class="col-3">
+                                                    <label for="" class="mb-2">Plataforma</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-warning text-white">
+                                                            <i class="fa-solid fa-store"></i>
+                                                        </span>
+                                                        <select name="" id="plataformaVendaManual"
+                                                            class="form-select text-center">
+                                                            <option value="escolha">Escolha a Plataforma</option>
+                                                            <option value="Shopee" selected>Shopee</option>
+                                                            <option value="Elo7">Elo7</option>
+                                                            <option value="Venda Avulsa">Venda Avulsa</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <!-- CLIENTE -->
+                                                    <label for="" class="mb-2">Cliente</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-danger text-white">
+                                                            <i class="fa-solid fa-user"></i>
+                                                        </span>
+                                                        <input type="text"
+                                                            class="form-control uppercase letra text-center"
+                                                            style="font-size: 0.85rem;" id="clienteVendaManual"
+                                                            placeholder="Nome do Cliente">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <label for="">&nbsp;</label>
+                                                    <button
+                                                        class="btn btn-lg bg-orange mt-2 uppercase letra d-none w-100"
+                                                        id="btn-envioEnviado" style="font-size: 0.7rem;">
+                                                        <i class="fa fa-check-circle uppercase letra"></i> Pedido
+                                                        Enviado
+                                                    </button>
+
+                                                    <button
+                                                        class="btn btn-lg btn-success mt-2 uppercase letra d-none w-100"
+                                                        id="btn-envioPrazo" style="font-size: 0.7rem;">
+                                                        <i class="fa fa-check-circle uppercase letra"></i> Dentro do
+                                                        Prazo
+                                                    </button>
+
+                                                    <button
+                                                        class="btn btn-lg btn-danger mt-2 uppercase letra d-none w-100"
+                                                        id="btn-envioCancelado" style="font-size: 0.7rem;">
+                                                        <i class="fa fa-circle-x uppercase letra"></i> Pedido Cancelado
+                                                    </button>
+
+                                                    <button
+                                                        class="btn btn-lg btn-danger mt-2 uppercase letra d-none w-100"
+                                                        id="btn-envioAtraso" style="font-size: 0.7rem;">
+                                                        <i class="fa fa-clock"></i> Pedido em Atraso
+                                                    </button>
+                                                </div>
+                                                <div class="col d-none">
+                                                    <input type="text" class="form-control mt-4" value=""
+                                                        id="statusEnvioVendaManual">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- CORPO DO CARD -->
+                                        <div class="card-body" id="cardCadastroVenda">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <table class="table table-striped table-hover table-bordered"
+                                                        id="tabelaCadastroVenda">
+                                                        <tr class="text-center uppercase table-dark"
+                                                            style="font-size: 0.7rem;">
+                                                            <th class="mt-2">produto</th>
+                                                            <th class="mt-2">sexo</th>
+                                                            <th class="mt-2">qtd</th>
+                                                            <th class="mt-2">p.unitario</th>
+                                                            <th class="mt-2">descontos</th>
+                                                            <th class="mt-2">p.total</th>
+                                                            <th class="mt-2">insumos</th>
+                                                            <th class="mt-2">capa</th>
+                                                            <th class="mt-2">Nome</th>
+                                                            <th class="mt-2">
+                                                                <button class="btn btn-primary btn-sm"
+                                                                    onclick="insereNovoProdutoCadastro()">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
+                                                            </th>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <!--PRODUTO-->
+                                                            <td id="1">
+                                                                <select name="" id="produtoVendaManual_1"
+                                                                    class="form-select text-center" onchange="recuperaPrecoUnitarioLinha(1), 
+                                                                        calculoBrutoLinha(1),
+                                                                        calcularLucro(),
+                                                                        calcularDataEnvioUtil(),
+                                                                        verificaStatusProducao()"
+                                                                    oninput="verificaStatusProducao()">
+                                                                    <option value="escolha" selected>
+                                                                        Escolha o Produto
+                                                                    </option>
+                                                                </select>
+                                                            </td>
+
+                                                            <!--SEXO-->
+                                                            <td>
+                                                                <select name="" id="sexoVendaManual_1"
+                                                                    class="form-select text-center">
+                                                                    <option value="nao escolhido" selected>-</option>
+                                                                    <option value="Fem">Feminino</option>
+                                                                    <option value="Masc">Masculino</option>
+                                                                </select>
+                                                            </td>
+
+                                                            <!--QTD-->
+                                                            <td>
+                                                                <input type="number" id="qtdVendaManual_1"
+                                                                    class="form-control text-center" placeholder="qtd"
+                                                                    value="1" oninput="recuperaPrecoUnitarioLinha(1);
+                                                                    calculoBrutoLinha(1);
+                                                                    verificaQtdProdutos(),
+                                                                    calcularLucro()" onchange="calcularLucro()">
+                                                            </td>
+
+                                                            <!--P.UNITARIO-->
+                                                            <td>
+                                                                <input type="text" id="precoUnitarioVendaManual_1"
+                                                                    class="form-control text-center"
+                                                                    placeholder="R$ 0,00" oninput="calculoBrutoLinha(1)"
+                                                                    onchange="calcularLucro()">
+                                                            </td>
+
+                                                            <!--ACRESCIMO-->
+                                                            <td>
+                                                                <input type="text" id="descontoAcrescimoVendaManual_1"
+                                                                    class="form-control text-center"
+                                                                    placeholder="R$ 0,00" value="0,00" oninput="calculoBrutoLinha(1),
+                                                                        calcularLucro()">
+                                                            </td>
+
+                                                            <!--P.total venda-->
+                                                            <td>
+                                                                <input type="text" id="totalVendaManual_1"
+                                                                    class="form-control text-center"
+                                                                    placeholder="R$ 0,00" onchange="calcularLucro()"
+                                                                    readonly style="cursor: not-allowed">
+                                                            </td>
+
+                                                            <!--P.total insumos-->
+                                                            <td>
+                                                                <input type="text" id="insumosVendaManual_1"
+                                                                    class="form-control text-center"
+                                                                    placeholder="R$ 0,00" readonly
+                                                                    style="cursor: not-allowed">
+                                                            </td>
+
+                                                            <!--Modelo Capa-->
+                                                            <td>
+                                                                <input type="number" id="modeloCapaVendaManual_1"
+                                                                    class="form-control text-center"
+                                                                    placeholder="Nº Capa">
+                                                            </td>
+
+                                                            <!--personalização-->
+                                                            <td>
+                                                                <input type="text" id="nomePersonalizadoVendaManual_1"
+                                                                    class="form-control text-center"
+                                                                    placeholder="Nome Personalizado" value="">
+                                                            </td>
+
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm"
+                                                                    onclick="removeNovoProdutoCadastro()"
+                                                                    id="btnRemoveLinha_1">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <!--EXIBE MAIOR TEMPO DE ENVIO / LUCRO LIQUIDO DA VENDA-->
+                                                    <div class="row my-3">
+                                                        <div class="col-4"></div>
+                                                        <!--MAIOR TEMPO ENVIO-->
+                                                        <div class="col">
+                                                            <span class="btn btn-sm btn-primary text-white w-100">
+                                                                <span class="fw-bold uppercase"
+                                                                    style="font-size: 0.7rem;">
+                                                                    maior tempo de envio: &nbsp;
+                                                                </span>
+                                                                <span class="fw-bold uppercase"
+                                                                    style="font-size: 0.75rem;">
+                                                                    <span id="mostraMaiorTempoEnvio"></span>
+                                                                    <span>Dias úteis</span>
+                                                                </span>
+                                                            </span>
+                                                        </div>
+
+                                                        <!--LUCRO LIQUIDO-->
+                                                        <div class="col">
+                                                            <span
+                                                                class="btn bg-secondary text-white uppercase letra w-100"
+                                                                style="font-size: 0.7rem;" onclick="calcularLucro()">
+                                                                <span class="fw-bold">Lucro Liquido da Venda:
+                                                                    &nbsp;</span>
+                                                                <span class="" id="resultadoLucroLiquidoVenda"></span>
+                                                                <i class="fa fa-percent"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <hr>
+                                            </div>
+
+                                            <div class="row mt-2 m-auto">
+                                                <!--TOTAL BRUTO-->
+                                                <div class="col-2">
+                                                    <label for="" class="mb-2">Total Bruto</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text text-white bg-primary d-block">
+                                                            <i class="fa-solid fa-brazilian-real-sign"></i>
+                                                        </span>
+                                                        <input type="text" id="totalBrutoCompra"
+                                                            class="form-control text-center letra" placeholder="R$ 0,00"
+                                                            disabled>
+                                                    </div>
+                                                </div>
+
+                                                <!--RECEBER PLATAFORMA-->
+                                                <div class="col-2">
+                                                    <label for="" class="mb-2" class="fw-bold">A receber</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-dark text-white">
+                                                            <i class="fa-solid fa-brazilian-real-sign"></i>
+                                                        </span>
+                                                        <input type="text" id="totalReceberShopee"
+                                                            class="form-control text-center bg-orange letra"
+                                                            placeholder="R$ 0,00">
+                                                    </div>
+                                                </div>
+
+                                                <!-- LUCRO PARA CASA-->
+                                                <div class="col-2">
+                                                    <label for="" class="mb-2" class="">Saldo da Casa</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-success text-white">
+                                                            <i class="fa-solid fa-brazilian-real-sign"></i>
+                                                        </span>
+
+                                                        <input type="text" id="lucroLiquidoReal"
+                                                            class="form-control text-center letra" placeholder="R$ 0,00"
+                                                            disabled>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Custos Insumos-->
+                                                <div class="col-2">
+                                                    <label for="" class="mb-2" class="">Saldo empresa</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-danger text-white">
+                                                            <i class="fa-solid fa-brazilian-real-sign"></i>
+                                                        </span>
+
+                                                        <input type="text" id="lucroLiquidoRealEmpresa"
+                                                            class="form-control text-center letra" placeholder="R$ 0,00"
+                                                            disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <!--STATUS DE PRODUÇÃO-->
+                                                    <label for="" class="mb-2">Status de Produção</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-dark text-white">
+                                                            <i class="fa-solid fa-brush"></i>
+                                                        </span>
+                                                        <select name="" id="statusProducaoVendaManual"
+                                                            onchange="verificaStatusProducao(), verificaTempoEnvio();"
+                                                            class="form-select text-center" style="font-size: 0.8rem;">
+                                                            <option value="Produção" selected>Em Produção</option>
+                                                            <option value="Enviado">Enviado</option>
+                                                            <option value="Cancelado">Cancelado</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <hr>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col mt-2">
+                                                    <label for="" class="mb-2">Observações Importantes</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text bg-primary text-white">
+                                                            <i class="fa-solid fa-note-sticky"></i>
+                                                        </span>
+                                                        <textarea name="" id="observacoesVendaManual" cols="30" rows="3"
+                                                            class="form-control" placeholder=""></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--OBSERVAÇÕES-->
+                                    <div class="card-footer mt-2">
+
+                                    </div>
+
+                                    <!--BTN SALVAR / EDITAR / LIMPAR-->
+                                    <div class="card-footer">
+                                        <div class="modal-footer d-flex justify-content-center">
+                                            <button type="button" class="btn btn-success" onclick="salvarVendaManual()">
+                                                <i class="fa-solid fa-save"></i>&nbsp; Salvar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" onclick="editarVendaManual()">
+                                                <i class="fa-solid fa-edit"></i>&nbsp; Editar
+                                            </button>
+                                            <button type="button" class="btn btn-danger" onclick="limparVendaManual()">
+                                                <i class="fa-solid fa-broom"></i>&nbsp; Limpar
+                                            </button>
+                                            <button type="button" class="btn btn-dark btn-sm"
+                                                onclick="adicionarVendaManual()">
+                                                <i class="fa-solid fas fa-plus-circle"></i>
+                                                &nbsp; Adicionar Venda
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+    <!--Final do conteúdo Principal-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
